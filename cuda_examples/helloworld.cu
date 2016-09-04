@@ -13,5 +13,6 @@ cudaMalloc((void**)&dev_c,sizeof(int));
 myGpuFunction<<<1,1>>>(2,2,dev_c);
 cudaMemcpy(&c, dev_c, sizeof(int), cudaMemcpyDeviceToHost);
 printf("Simple program to check make the GPU calls : Sum %d\n",c);
+cudaFree(dev_c);
 return 0;
 }
